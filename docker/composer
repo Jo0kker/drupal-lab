@@ -1,0 +1,2 @@
+#!/bin/sh
+docker-compose exec --user=www-data --env COMPOSER_MEMORY_LIMIT=-1 drupal composer $@

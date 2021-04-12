@@ -1,0 +1,2 @@
+#!/bin/sh
+docker-compose exec --user=www-data drupal vendor/bin/drupal $@

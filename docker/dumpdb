@@ -1,0 +1,4 @@
+#!/bin/sh
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+DATABASE=${1}
+docker exec -i $(docker-compose ps -q mysql) mysqldump -u root -proot --single-transaction ${DATABASE} | gzip > $SCRIPTPATH/mysql_dumps/${DATABASE}__$(date +%Y-%m-%d-%Hh%M).sql.gz
