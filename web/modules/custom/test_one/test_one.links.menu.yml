@@ -1,0 +1,5 @@
+test_one.demo:
+    title: 'Information du site'
+    route_name: test_one.demo
+    description: 'Page de test'
+    menu_name: main

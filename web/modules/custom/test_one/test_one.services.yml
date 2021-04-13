@@ -1,0 +1,6 @@
+services:
+    test_one.repository:
+        class: Drupal\test_one\Repository\SessionsRepository
+        autowire: true
+        arguments:
+            '$database': '@database'

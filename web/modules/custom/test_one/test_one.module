@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function test_one_theme($existing, $type, $theme, $path) {
+    return [
+        // Name of the theme hook. This is used in the controller to trigger the hook.
+        'test_one' => [
+            // If no template name is defined here, it defaults to the name of the theme hook, ie. module-name-theme-hook.html.twig
+            'template' => 'test_one',
+            'variables' => [
+                'variable1' => 'Yet another default text.',
+                'variable2' => 0,
+                'variable3' => [0, 0, 0],
+            ]
+        ],
+        'demo' => [
+            // If no template name is defined here, it defaults to the name of the theme hook, ie. module-name-theme-hook.html.twig
+            'template' => 'demo',
+            'variables' => [
+                'sessions' => [],
+                'logStats' => []
+            ]
+        ]
+    ];
+}
+
+function test_one_user_login($account) {
+    \Drupal::service('test_one.repository')->createLoginStat($account->uid->value);
+}
+
+function test_one_user_logout($account) {
+    $uid =  \Drupal::currentUser()->id();
+    \Drupal::service('test_one.repository')->createLogoutStat($uid);
+
+}

@@ -1,0 +1,38 @@
+<h1>List of active sessions</h1>
+<table>
+    <thead>
+    <tr>
+        <th>IP</th>
+        <th>User</th>
+        <th>Connected</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for session in sessions %}
+        <tr>
+            <td>{{ session.hostname }}</td>
+            <td>{{ session.name }}</td>
+            <td>{{ session.timestamp|date("d/m/Y h:i:s") }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<h1>Log of connexion</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th>User</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for session in logStats %}
+        <tr>
+            <td>{{ session.type }}</td>
+            <td>{{ session.name }}</td>
+            <td>{{ session.timestamp|date("d/m/Y h:i:s") }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
