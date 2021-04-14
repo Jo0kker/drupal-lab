@@ -88,6 +88,8 @@ class TestOneForm extends FormBase
         $messenger->addMessage('Accept: '.$form_state->getValue('accept'));
         dd($form_state->getValue('title'));
         // Redirect to home.
+
+        //
         $form_state->setRedirect('<front>');
     }
 }
